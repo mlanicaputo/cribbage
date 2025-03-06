@@ -110,6 +110,22 @@ class Card:
         return self._color
 
 
+def sum_cards(cards: List[Card]) -> int:
+    """Return the sum of the values of a list of cards.
+
+    Args:
+        cards: List[Card]
+    Returns:
+        int
+    """
+
+    sum_values = 0
+    for card in cards:
+        sum_values += card.value
+
+    return sum_values
+
+
 class Deck:
     """
     Cards ordered in face-out order.
@@ -129,20 +145,35 @@ class Deck:
             self.shuffle()
 
     @property
-    def cards(self):
+    def cards(self) -> List[Card]:
         """Return cards in the deck.
+
+        Args:
+            None
+        Returns:
+            List[Card]
         """
 
         return self._cards
 
     def shuffle(self) -> None:
-        """Shuffle the deck, reordering cards randomly.
+        """Shuffle the deck, reordering cards randomly. Inplace.
+
+        Args:
+            None
+        Returns:
+            None
         """
 
         random.shuffle(self.cards)
 
     def draw(self) -> Card:
         """Draw a card from the top of the deck.
+
+        Args:
+            None
+        Returns:
+            Card
         """
 
         return self.cards.pop()

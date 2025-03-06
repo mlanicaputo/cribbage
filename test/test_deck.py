@@ -77,3 +77,22 @@ class TestDeck:
         # output as input with the random.shuffle(). Therefore, we cannot test
         # whether the list was reordered or not--the test would fail a non-zero
         # percent of the time.
+
+
+def test_sum_cards():
+    cards = [
+        Card(Rank.ACE, Suit.SPADES),
+        Card(Rank.KING, Suit.SPADES),
+        Card(Rank.QUEEN, Suit.SPADES),
+        Card(Rank.R_2, Suit.SPADES),
+        Card(Rank.R_2, Suit.SPADES),
+    ]
+
+    assert sum_cards(cards) == 25
+
+    cards = [
+        Card(Rank.R_5, Suit.SPADES),
+        Card(Rank.KING, Suit.SPADES),
+    ]
+
+    assert sum_cards(cards) == 15
