@@ -71,6 +71,18 @@ class Card:
         """
 
         return f"{self.rank} of {self.suit}"
+
+
+    def __repr__(self) -> str:
+        """Return the card's rank and suit in format: {Rank} of {Suit}.
+        
+        Args:
+            None
+        Returns:
+            str
+        """
+
+        return f"{self.rank} of {self.suit}"
     
 
     @property
