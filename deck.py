@@ -134,20 +134,40 @@ class Card:
         return self._color
 
 
-def sum_cards(cards: List[Card]) -> int:
-    """Return the sum of the values of a list of cards.
-
-    Args:
-        cards: List[Card]
-    Returns:
-        int
+class Hand:
+    """A collection of cards.
     """
 
-    sum_values = 0
-    for card in cards:
-        sum_values += card.value
+    cards: List[Card]
+    points: int
 
-    return sum_values
+    def __init__(self, cards) -> None:
+        self._cards = cards
+        self.points = None
+
+    @property
+    def cards(self) -> List[Card]:
+        """Return cards field.
+
+        Args:
+            None
+        Returns:
+            List[Card]
+        """
+
+        return self._cards
+
+    def points(self) -> int:
+        """Return number of points in hand.
+        If number of points has not been calculated, return None.
+
+        Args:
+            None
+        Returns:
+            int
+        """
+
+        return self.points    
 
 
 class Deck:
@@ -201,3 +221,19 @@ class Deck:
         """
 
         return self.cards.pop()
+
+
+def sum_cards(cards: List[Card]) -> int:
+    """Return the sum of the values of a list of cards.
+
+    Args:
+        cards: List[Card]
+    Returns:
+        int
+    """
+
+    sum_values = 0
+    for card in cards:
+        sum_values += card.value
+
+    return sum_values
